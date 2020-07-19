@@ -21,6 +21,9 @@ const Home = ({ navigation }) => {
           />
         </View>
         <View style={styles.header}>
+          <Text style={{ marginTop: 10,marginRight: 6,marginLeft: 6,height: 50,width: 100, }} onPress={() => navigation.push("MachineOperator")}>
+            Find Operators
+          </Text>
           <Text style={styles.text} onPress={() => navigation.push("MyChatBot")}>
             ChatBot
           </Text>

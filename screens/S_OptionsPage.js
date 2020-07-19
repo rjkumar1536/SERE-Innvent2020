@@ -1,28 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
+import PurchasePlan from './PurchasePlan';
+import MenuDrawer from '../routes/MenuDrawer';
 
 
 const S_OptionsPage = ({ navigation }) => {
+    let plans =  localStorage.getItem("subscription");
+    console.log(plans)
     return (
-        <View style={styles.container}>
-             <View style={styles.button}>
-            <Button title="DashBoard"  onPress={() => navigation.push("S_Dashboards")}/>
-        </View>
-        <View style={styles.button}>
-            <Button title="Update Details" style={styles.button} ></Button>
-        </View>
-        <View style={styles.button}> 
-            <Button title="Add Equipment" style={styles.button}></Button>
-        </View>
-        <View style={styles.button}> 
-            <Button title="Purchase Plans" style={styles.button}  onPress={()=>navigation.push('PurchasePlans')}></Button>
-        </View>
-        </View>
-       
+        <>
+        {
+            plans ? <MenuDrawer></MenuDrawer>:<PurchasePlan navigation={navigation}></PurchasePlan>
+        }
+        </>
     )
 }
 
-export default S_OptionsPage
 
 const styles = StyleSheet.create({
     container: {
@@ -38,3 +31,55 @@ const styles = StyleSheet.create({
         padding: 20
     }
 })
+
+// import { SideMenu, List, ListItem , View} from 'react-native-elements'
+// import  React,{useState} from 'react';
+
+//   const S_OptionsPage = () => {
+//     let list = [
+//         {
+//             name : 'Dashboard'
+//         },
+//         {
+//             name : 'Update Details'
+//         },
+//         {
+//             name : 'Add Equipment'
+//         },
+//         {
+//             name : 'Update Subscription Plan'
+//         }
+//     ];
+//    const toggleSideMenu = ()=> {
+//         toggle(!isOpen);
+//       }
+//     const [isOpen, toggle] = useState(false);
+//     const MenuComponent = (
+//         <View style={{flex: 1, backgroundColor: '#ededed', paddingTop: 50}}>
+//           <List containerStyle={{marginBottom: 20}}>
+//           {
+//             list.map((l, i) => (
+//               <ListItem
+//                 // roundAvatar
+//                 onPress={() => console.log('Pressed')}
+//                 // avatar={l.avatar_url}
+//                 key={i}
+//                 title={l.name}
+//                 // subtitle={l.subtitle}
+//               />
+//             ))
+//           }
+//           </List>
+//         </View>
+//       )
+//     return (
+//         <SideMenu
+//           isOpen={isOpen}
+//           menu={MenuComponent}>
+//           {/* <App toggleSideMenu={toggleSideMenu} /> */}
+//         </SideMenu>
+//       )
+//   }
+
+export default S_OptionsPage;
+// 

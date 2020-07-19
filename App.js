@@ -11,7 +11,14 @@ import { Icon } from 'react-native-elements';
 import Payment from './screens/Payment';
 import S_dashboard from './screens/S_dashboard';
 import S_OptionsPage from './screens/S_OptionsPage';
+import SupplierDetails from './screens/SupplierDetails';
 import PurchasePlan from './screens/PurchasePlan';
+import MachineOperator from './screens/MachineOperator';
+import OwnerInventory from './screens/OwnerInventory';
+import AddEquipment from './screens/AddEquipment';
+import SubscriptionPayment from './screens/SubscriptionPayment';
+import MenuDrawer from './routes/MenuDrawer';
+import ForwardRoute from './screens/ForwardRoute';
 
 const Stack = createStackNavigator();
 function Homes({navigation}){
@@ -42,7 +49,7 @@ function cartPage({navigation}){
 }
 function Payments({navigation}){
   return(
-   <Payment ></Payment>
+   <Payment  navigation = {navigation} ></Payment>
   )
 }
 
@@ -60,7 +67,19 @@ function S_OptionsPages({navigation}){
 
 function PurchasePlans({navigation}){
   return(
-  <PurchasePlan></PurchasePlan>
+  <PurchasePlan navigation={navigation}></PurchasePlan>
+  )
+}
+
+function AddEquipments({navigation}){
+  return(
+  <AddEquipment navigation={navigation}></AddEquipment>
+  )
+}
+
+function SubscriptionPayments({navigation}){
+  return(
+    <SubscriptionPayment navigation = {navigation}></SubscriptionPayment>
   )
 }
 
@@ -125,8 +144,8 @@ export default function App() {
       <Stack.Screen
           name="S_Dashboards"
           component={S_dashboard}
-          options={{title:'DashBoard',headerStyle: {
-            backgroundColor: '#3F51B5'  
+          options={{title:'SERE',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'  
           } , headerTitleStyle: {
             fontWeight: 'bold',
           },headerTitleAlign: 'center' 
@@ -136,8 +155,8 @@ export default function App() {
       <Stack.Screen
           name="S_OptionsPages"
           component={S_OptionsPage}
-          options={{title:'',headerStyle: {
-            backgroundColor: '#3F51B5'
+          options={{title:'',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
           }  
           }}
         ></Stack.Screen>
@@ -146,12 +165,61 @@ export default function App() {
       <Stack.Screen
           name="PurchasePlans"
           component={PurchasePlan}
-          options={{title:'Plans',headerStyle: {
-            backgroundColor: '#3F51B5'
+          options={{headerTitle : 'SERE',headerTitleAlign: "center", headerStyle: {
+            backgroundColor: '#FEB12C'
           }   , headerTitleStyle: {
             fontWeight: 'bold',
             
           },headerTitleAlign: 'center' 
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="SupplierDetails"
+          component={SupplierDetails}
+          options={{title:'SERE',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
+          }  
+          }}
+        ></Stack.Screen>
+         <Stack.Screen
+          name="SubscriptionPayment"
+          component={SubscriptionPayment}
+          options={{ headerTitle: "SERE", headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
+          }  
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MachineOperator"
+          component={MachineOperator}
+          options={{title:'Find Operators',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
+          }  
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="OwnerInventory"
+          component={OwnerInventory}
+          options={{title:'SERE',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C5'
+          }  
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="MenuDrawer"
+          component={MenuDrawer}
+          options={{title:'SERE',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
+          }  
+          }}
+        ></Stack.Screen>
+        
+        <Stack.Screen
+          name="ForwardRoute"
+          component={ForwardRoute}
+          options={{title:'SERE',headerTitleAlign: "center",headerStyle: {
+            backgroundColor: '#FEB12C'
+          }  
           }}
         ></Stack.Screen>
       </Stack.Navigator>
